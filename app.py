@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     a = {
-    'Zahirr TextMaker ApI':{'My TextMaker ApI'}
+    'Contoh-Penggunaan':{'text3d': 'api/text3d?text=halo', 'textmaker1': 'api/textmaker?text=halo', 'textmaker2': 'api/textmaker2?text=halo', 'textmaker3': 'api/textmaker3?text=halo', 'textmaker4': 'api/textmaker4?text=halo'}
     }
     return a
 
@@ -119,6 +119,34 @@ def makerr4():
          "results":p
          }
         return js
+
+@app.route('/api/text3d', methods=['GET'])
+def tigadimensi():
+    from lib.text3d import tulis
+    text = request.args.get('text')
+    tulis=tulis(text)
+    for i in tulis.tulis():
+        i.save('gambar.jpg')
+        image = open('gambar.jpg', 'rb')
+        image_read = image.read()
+        image_64_encode = base64.encodebytes(image_read)
+        url = 'https://api.imgbb.com/1/upload'
+        par = {
+         'key':'761ea2d5575581057a799d14e9c78e28',
+         'image':image_64_encode,
+         'name':'support zahirr',
+         'expiration': 60
+         }
+        headers = {
+         'Accept': 'application/json'
+         }
+        req = requests.post(url,data=par, headers=headers)
+        p = req.json()['data']['display_url']
+        js = {
+         "results":p
+         }
+        return js
+
 
 if __name__ == '__main__':
     app.run()

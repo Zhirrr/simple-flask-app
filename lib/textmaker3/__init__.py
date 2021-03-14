@@ -8,7 +8,7 @@ class tulis:
         self.text = listOrText
         self.output = []
     def tulis(self):
-        img, font, kata, tempkata=Image.open("textmaker3/gambar.jpg"), ImageFont.truetype("textmaker3/Roadrage.ttf",56),'',''
+        img, font, kata, tempkata=Image.open("lib/textmaker3/gambar.jpg"), ImageFont.truetype("lib/textmaker3/Roadrage.ttf",56),'',''
         draw=ImageDraw.Draw(img)
         if type(self.text) is not list:
             self.output=[]
