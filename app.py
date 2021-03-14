@@ -232,8 +232,8 @@ def tigadimensi4():
 def blekpink():
     from lib.blackpink import blackpink
     text = request.args.get('text')
-    blackpink(text).save('gambar.jpg')
-        image = open('gambar.jpg', 'rb')
+    blackpink(text).save('gambar.png')
+        image = open('gambar.png', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
         url = 'https://api.imgbb.com/1/upload'
