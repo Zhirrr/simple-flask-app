@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     a = {
-    'Zahirr TextMaker ApI':{'My TextMaker ApI'}
+    'Contoh-Penggunaan':{'textmaker1': 'api/textmaker?text=halo', 'textmaker2': 'api/textmaker2?text=halo', 'textmaker3': 'api/textmaker3?text=halo', 'textmaker4': 'api/textmaker4?text=halo'}
     }
     return a
 
@@ -119,6 +119,7 @@ def makerr4():
          "results":p
          }
         return js
+
 
 if __name__ == '__main__':
     app.run()
