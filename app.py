@@ -54,7 +54,7 @@ def tulis():
         image_64_encode = base64.encodebytes(image_read)
         url = 'https://api.imgbb.com/1/upload'
         par = {
-         'key':'ISI DENGAN API IBB LU NGAP',
+         'key':'761ea2d5575581057a799d14e9c78e28',
          'image':image_64_encode,
          'name':'nulis_ferdiz-afk',
          'expiration': 60
