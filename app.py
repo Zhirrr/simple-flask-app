@@ -228,11 +228,67 @@ def tigadimensi4():
          }
         return js
 
-@app.route('/api/blackpink', methods=['GET'])
-def blekpink():
-    from lib.blackpink import blackpink
+@app.route('/api/text3d-5', methods=['GET'])
+def tigadimensi5():
+    from lib.text3dke5 import tulis
     text = request.args.get('text')
-    blackpink(text).save('gambar.jpg')
+    tulis=tulis(text)
+    for i in tulis.tulis():
+        i.save('gambar.jpg')
+        image = open('gambar.jpg', 'rb')
+        image_read = image.read()
+        image_64_encode = base64.encodebytes(image_read)
+        url = 'https://api.imgbb.com/1/upload'
+        par = {
+         'key':'761ea2d5575581057a799d14e9c78e28',
+         'image':image_64_encode,
+         'name':'support zahirr',
+         'expiration': 60
+         }
+        headers = {
+         'Accept': 'application/json'
+         }
+        req = requests.post(url,data=par, headers=headers)
+        p = req.json()['data']['display_url']
+        js = {
+         "results":p
+         }
+        return js
+
+@app.route('/api/special/transformer', methods=['GET'])
+def robot():
+    from lib.special.transformer import tulis
+    text = request.args.get('text')
+    tulis=tulis(text)
+    for i in tulis.tulis():
+        i.save('gambar.jpg')
+        image = open('gambar.jpg', 'rb')
+        image_read = image.read()
+        image_64_encode = base64.encodebytes(image_read)
+        url = 'https://api.imgbb.com/1/upload'
+        par = {
+         'key':'761ea2d5575581057a799d14e9c78e28',
+         'image':image_64_encode,
+         'name':'support zahirr',
+         'expiration': 60
+         }
+        headers = {
+         'Accept': 'application/json'
+         }
+        req = requests.post(url,data=par, headers=headers)
+        p = req.json()['data']['display_url']
+        js = {
+         "results":p
+         }
+        return js
+
+@app.route('/api/special/sertifikatepep', methods=['GET'])
+def epep():
+    from lib.special.sertifikatepep import tulis
+    text = request.args.get('text')
+    tulis=tulis(text)
+    for i in tulis.tulis():
+        i.save('gambar.jpg')
         image = open('gambar.jpg', 'rb')
         image_read = image.read()
         image_64_encode = base64.encodebytes(image_read)
